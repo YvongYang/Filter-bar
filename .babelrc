@@ -1,15 +1,19 @@
-
 {
   "presets": [
-    "env",
-    "react",
-    "stage-0"
+      "env",
+      "react",
+      "stage-0"
   ],
   "plugins": [
-    "transform-runtime",
-    ["import", {
-      "libraryName": "antd",
-      "style": "true"
-    }]
-  ]
+      ["import", {
+          "libraryName": "antd",
+          "style": true
+      }],
+      ["transform-runtime", {
+          "helpers": false,
+          "polyfill": false,
+          "regenerator": true,
+          "moduleName": "babel-runtime"
+      }]
+  ]  
 }
