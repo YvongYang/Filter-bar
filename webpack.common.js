@@ -4,6 +4,9 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
+const commonCss = new ExtractTextPlugin('common.css')
+const projectCss = new ExtractTextPlugin('[name].[contenthash:8].css')
+
 module.exports = {
     // 起点入口，每个key是chunk的名称
     // polyfill在入口之前引入
@@ -22,10 +25,22 @@ module.exports = {
               use: 'css-loader'
             })
           },
+          {
+            test: /\.scss$/,
+            exclude: /src/,
+            use: commonCss.extract({
+                // 外部的css用style loader
+                fallback: 'style-loader',
+                use: [
+                    'css-loader',
+                    'sass-loader'
+                ]
+            })
+        },
         {
             test: /\.scss$/,
-            exclude: /node_modules/,
-            use: ExtractTextPlugin.extract({
+            include: /src/,
+            use: projectCss.extract({
                 // 外部的css用style loader
                 fallback: 'style-loader',
                 use: [
@@ -52,9 +67,8 @@ module.exports = {
             inject: true,
             template: 'src/index.html'
         }),
-        new ExtractTextPlugin({
-            filename: '[name].[contenthash:8].css'
-        }),
+        commonCss,
+        projectCss,
         // 重复引用的代码放到common.bundle.js中
         new webpack.optimize.CommonsChunkPlugin({
             name: 'manifest'

@@ -1,22 +1,32 @@
 import React, {Component} from 'react';
+import FilterBar from './filter-bar.jsx';
+import FilterBarInfo from '../filter-bar/mock-data.js';
 
-class FilterBar extends Component {
+import '../../../sass/style.scss';
+
+class Playground extends Component {
   constructor(props) {
     super(props);
+
+    this.state = {
+      criteria: FilterBarInfo.userinfo.context.confirmedCriteria
+    };
   }
 
   render() {
-
     return(
       <div>
-        <h1>Filter bar</h1>
+        <h1>hfsdjfhdsj</h1>
+        <FilterBar 
+        criteria={this.state.criteria}
+      />
       </div>
     );
   }
 }
 
-FilterBar.propTypes = {};
+Playground.propTypes = {};
 
-FilterBar.defaultProps = {};
+Playground.defaultProps = {};
 
-export default FilterBar;
+export default Playground;
