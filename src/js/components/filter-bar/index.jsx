@@ -15,12 +15,9 @@ class Playground extends Component {
 
   render() {
     return(
-      <div>
-        <h1>Test</h1>
-        <FilterBar 
-          criteria={this.state.criteria}
+      <FilterBar 
+        criteria={this.state.criteria}
       />
-      </div>
     );
   }
 }
