@@ -9,8 +9,7 @@ class Playground extends Component {
     super(props);
 
     this.state = {
-      criteria: FilterBarInfo.userinfo.contegit config --global user.email "你的邮件地址"
-      git config --global user.name "你的Github用户名"xt.confirmedCriteria
+      criteria: FilterBarInfo.userinfo.context.confirmedCriteria
     };
   }
 
@@ -20,7 +19,7 @@ class Playground extends Component {
         <h1>Test</h1>
         <FilterBar 
           criteria={this.state.criteria}
-        />
+      />
       </div>
     );
   }
