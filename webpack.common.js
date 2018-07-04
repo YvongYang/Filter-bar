@@ -24,8 +24,19 @@ module.exports = {
               fallback: 'style-loader',
               use: 'css-loader'
             })
-          },
-          {
+        },
+        {
+            test: /\.less$/,
+            exclude: /node_modules/,
+            use: ExtractTextPlugin.extract({
+              fallback: 'style-loader',
+              use: [
+                'css-loader',
+                'less-loader'
+              ]
+            })
+        },
+        {
             test: /\.scss$/,
             exclude: /src/,
             use: commonCss.extract({

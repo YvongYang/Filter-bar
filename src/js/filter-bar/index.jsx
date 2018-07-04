@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import FilterBar from './filter-bar.jsx';
-import FilterBarInfo from '../filter-bar/mock-data.js';
+import FilterBarInfo from './mock-data.js';
 
-import '../../../sass/style.scss';
+import '../../sass/style.scss';
 
 class Playground extends Component {
   constructor(props) {
@@ -17,6 +17,7 @@ class Playground extends Component {
     return(
       <FilterBar 
         criteria={this.state.criteria}
+        onChange={() => {}}
       />
     );
   }
