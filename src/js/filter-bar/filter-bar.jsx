@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import FilterUtil from '../utils/filter-util';
+import FilterItem from './filter-item';
 
 class FilterBar extends Component {
   constructor(props) {
@@ -15,7 +16,8 @@ class FilterBar extends Component {
     return filterItems.map(f => {
       let FilterComponent = FilterUtil.getFilterComponent(f.type);
       let value = this.state.filter[f.name] || null;
-      let wrapperClassName = options[f.type] && options[f.type].wrapperClassName || null;
+      let options = f.options || this.options;
+      let wrapperClassName = options && options[f.type] && options[f.type].wrapperClassName || null;
 
       return (
         <FilterItem className={wrapperClassName} key={f.name} removable={!f.isDefault} onRemove={() => {}}>

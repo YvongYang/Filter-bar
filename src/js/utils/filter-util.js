@@ -1,7 +1,15 @@
-import Text from '../components/text.jsx';
+import Text from '../components/text';
+import SingleSelect from '../components/single-select';
+import MultipleSelect from '../components/multiple-select';
+import DateRange from '../components/date-range';
+import TwoLayerSelect from '../components/twolayer-select';
 
 const FILTER_COMPONENT_MAPPING = {
-  'text': Text
+  'text': Text,
+  'singleSelect': SingleSelect,
+  'multipleSelect': MultipleSelect,
+  'dateRange': DateRange,
+  'twoLayerSelect': TwoLayerSelect
 };
 
 const FilterUtil = {

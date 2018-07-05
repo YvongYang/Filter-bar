@@ -29,13 +29,13 @@ module.exports = {
             test: /\.less$/,
             exclude: /node_modules/,
             use: ExtractTextPlugin.extract({
-              fallback: 'style-loader',
-              use: [
-                'css-loader',
-                'less-loader'
-              ]
+                fallback: 'style-loader',
+                use: [
+                    'css-loader',
+                    'less-loader'
+                ]
             })
-        },
+          },
         {
             test: /\.scss$/,
             exclude: /src/,
@@ -96,5 +96,8 @@ module.exports = {
         // 相当于给dist文件设置别名
         path: path.resolve(__dirname, 'dist'),
         chunkFilename: '[name].[hash:8].js'
+    },
+    resolve: {
+        extensions: ['.scss', '.jsx', '.js', '.json']
     }
 };

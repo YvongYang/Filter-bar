@@ -15,7 +15,8 @@ class Playground extends Component {
 
   render() {
     return(
-      <FilterBar 
+      <FilterBar
+        options={{}}
         criteria={this.state.criteria}
         onChange={() => {}}
       />
