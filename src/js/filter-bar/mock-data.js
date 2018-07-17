@@ -31,12 +31,6 @@ export default {
           "valueLabelList": null
         }, {"value": "12", "label": "跨越速运", "valueLabelList": null}]
       }, {
-        "name": "SEARCH_KEYWORD",
-        "description": "",
-        "type": "text",
-        "isDefault": true,
-        "isActive": true
-      }, {
         "name": "CREATION_START_END_TIME",
         "description": "创建时间",
         "type": "dateRange",
@@ -51,15 +45,6 @@ export default {
         "isDefault": true,
         "isActive": true
       }, 
-      {
-        "name": "CREATION_START_END_TIME",
-        "description": "创建时间",
-        "type": "dateRange",
-        "isDefault": false,
-        "isActive": false,
-        "startParamName": "START_TIME",
-        "endParamName": "END_TIME"
-      },
         {
           "name": "PROVINCE_CITY",
           "description": "",

@@ -2,8 +2,6 @@ import React, {Component} from 'react';
 import FilterBar from './filter-bar.jsx';
 import FilterBarInfo from './mock-data.js';
 
-import '../../sass/style.scss';
-
 class Playground extends Component {
   constructor(props) {
     super(props);
