@@ -2,6 +2,8 @@ import React, {Component} from 'react';
 import FilterUtil from '../utils/filter-util';
 import FilterItem from './filter-item';
 
+import './filter-bar.scss';
+
 class FilterBar extends Component {
   constructor(props) {
     super(props);
