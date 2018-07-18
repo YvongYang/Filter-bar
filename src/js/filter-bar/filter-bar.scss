@@ -1,14 +1,52 @@
 @import '../../sass/variable';
 
-
 .filter-bar {
   &__defaults {}
 
   &__extends {}
 
   &__lists {}
+}
 
-  &__item {}
 
-  &__item-close {}
+.filter-bar__item {
+  display: inline-block;
+  padding: 4px 8px;
+  margin-right: 20px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+
+  &:hover {
+    border-color: $lighter-gray;
+    background: $light-white;
+  }
+
+  &-btn,
+  &-btn:hover {
+    color: $light-gray;
+  }
+
+  &-btn {
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  &-btn__text-wrapper {
+    max-width: 140px;
+    padding-right: 14px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+
+  &-btn__label {
+    color: #333;
+  }
+
+  &-btn__dropdown {
+    position: absolute;
+    top: 6px;
+    right: 0;
+  }
 }
