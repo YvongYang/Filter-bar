@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import FilterBar from './filter-bar.jsx';
 import FilterBarInfo from './mock-data.js';
+import FilterUtil from '../utils/filter-util';
 
 class Playground extends Component {
   constructor(props) {
@@ -15,7 +16,8 @@ class Playground extends Component {
     return(
       <FilterBar
         options={{}}
-        criteria={this.state.criteria}
+        default={FilterUtil.deeplyCopy(this.state.criteria)}
+        criteria={FilterUtil.deeplyCopy(this.state.criteria)}
         onChange={() => {}}
       />
     );

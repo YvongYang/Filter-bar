@@ -9,6 +9,7 @@ export default {
         "type": "singleSelect",
         "isDefault": true,
         "isActive": true,
+        "value": "7",
         "valueLabelList": [{"value": "5", "label": "如风达", "valueLabelList": null}, {
           "value": "1",
           "label": "全球邮政特快专递",
@@ -37,13 +38,15 @@ export default {
         "isDefault": false,
         "isActive": false,
         "startParamName": "START_TIME",
-        "endParamName": "END_TIME"
+        "endParamName": "END_TIME",
+        "value": []
       },  {
         "name": "SEARCH_KEYWORD",
         "description": "",
         "type": "text",
         "isDefault": true,
-        "isActive": true
+        "isActive": true,
+        "value": "yang"
       }, 
         {
           "name": "PROVINCE_CITY",

@@ -6,14 +6,21 @@ const Search = Input.Search;
 class Text extends Component {
   constructor(props) {
     super(props);
+
+    this.state = {
+      value: props.value
+    };
   }
 
   renderMenu() {
+    const {value} = this.state;
+
     return (
       <Menu>
         <Menu.Item>
           <Search
             placeholder="Please input"
+            defaultValue={value}
             onSearch={() => {}}
           />
         </Menu.Item>

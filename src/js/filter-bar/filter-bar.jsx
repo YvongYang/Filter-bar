@@ -9,15 +9,15 @@ class FilterBar extends Component {
     super(props);
 
     this.state = {
-      filter: {},
-      filterCtrl: FilterUtil.deeplyCopy(this.props.criteria)
+      filter: this.props.default,
+      filterCtrl: this.props.criteria
     };
   }
 
   renderFilterItems(filterItems = []) {
     return filterItems.map(f => {
       let FilterComponent = FilterUtil.getFilterComponent(f.type);
-      let value = this.state.filter[f.name] || null;
+      let value = this.state.filter.filter(i => i.name === f.name)[0].value || null;
       let options = f.options || this.options;
       let wrapperClassName = options && options[f.type] && options[f.type].wrapperClassName || null;
 
