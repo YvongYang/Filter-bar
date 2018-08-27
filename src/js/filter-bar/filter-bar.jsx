@@ -1,4 +1,6 @@
 import React, {Component} from 'react';
+import { withRouter } from 'react-router-dom';
+
 import FilterUtil from '../utils/filter-util';
 import FilterItem from './filter-item';
 
@@ -58,4 +60,4 @@ FilterBar.propTypes = {};
 
 FilterBar.defaultProps = {};
 
-export default FilterBar;
+export default withRouter(FilterBar);
