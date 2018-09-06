@@ -7,7 +7,9 @@ const webpack = require('webpack');
     devServer: {
         contentBase: './dist',
         hot: true,
-        inline: true
+        inline: true,
+        // host: '0.0.0.0',  //为什么我配置为0.0.0.0会有问题
+        // port: 3000
     },
     plugins: [
         new webpack.NamedModulesPlugin(),

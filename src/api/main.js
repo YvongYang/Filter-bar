@@ -1,0 +1,1 @@
+export const a = 'I am from a mock server';

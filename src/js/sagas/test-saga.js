@@ -1,12 +1,27 @@
 import { delay } from 'redux-saga'
-import { put, takeEvery, actionChannel } from 'redux-saga/effects'
+import { put, takeEvery, actionChannel , call} from 'redux-saga/effects'
 import * as actions from '../actions/test';
+require('isomorphic-fetch');
+
+export function fetchServerData(data) {
+  return fetch('/src/api/main.js')
+  .then(function(response) {
+		if (response.status >= 400) {
+			throw new Error("Bad response from server");
+		}
+		return response.json();
+	})
+	.then(function(stories) {
+		console.log(stories);
+	});
+}
 
 export function* incrementAsync() {
   yield delay(1000);
-  console.log('aaa');
-  yield put(actions.increment())
-  console.log('bbb');
+  yield put(actions.increment());
+  // yield put(fetchServerData);
+  const data = yield call(fetchServerData);
+  yield put(actions.fetchServerData(data));
 }
 
 export function* watchIncrementAsync() {

@@ -17,3 +17,10 @@ export function decrement () {
     type: 'DECREMENT'
   };
 }
+
+export function fetchServerData(data) {
+  return {
+    type: 'FETCH_SERVER_DATA',
+    data
+  };
+}

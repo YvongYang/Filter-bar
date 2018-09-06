@@ -25,18 +25,31 @@ const Counter = ({ value, onIncrement, onDecrement, onIncrementAsync }) =>
 
 const Test = (props) => {
   return (
-    <Counter
-      value={props.test}
-      onIncrement={() => props.increment()}
-      onDecrement={() => props.decrement()}
-      onIncrementAsync={() => props.incrementAsync()} />
+   <div>
+    <div>
+      <label>Saga Test</label>
+      <Counter
+        value={props.test}
+        onIncrement={() => props.increment()}
+        onDecrement={() => props.decrement()}
+        onIncrementAsync={() => props.incrementAsync()} />
+    </div>
+    <div>
+      <label>This is Mock Server Data</label>
+      <span>{props.serverData}</span>
+    </div>
+   </div>
   );
 };
 
-export default connect((state) => {
-  return {test: state}
+export default connect(({serverData, test}) => {
+  return {
+    test: test,
+    serverData: serverData
+  }
 }, {
   increment,
   decrement,
-  incrementAsync
+  incrementAsync,
+  // fetchSeverData
 })(withRouter(Test));
