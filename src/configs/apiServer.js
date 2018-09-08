@@ -31,7 +31,7 @@ var app = express();
 
 app.use('/', require('../api/main'));
 
-var server = app.listen(8080, function(err) {
+var server = app.listen(3030, function(err) {
   var apiHost = server.address().address;
   var apiPort = server.address().port;
 

@@ -4,7 +4,7 @@ import * as actions from '../actions/test';
 require('isomorphic-fetch');
 
 export function fetchServerData(data) {
-  return fetch('/src/api/main.js')
+  return fetch('test/server')
   .then(function(response) {
 		if (response.status >= 400) {
 			throw new Error("Bad response from server");
