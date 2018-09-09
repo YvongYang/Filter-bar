@@ -11,7 +11,7 @@ export function test(state = 1, action) {
 
 export function serverData(state = null, action) {
   switch (action.type) {
-    case 'FETCH_SERVER_DATA':
+    case 'SERVER_DATA_FETCHED':
       return action.data;
     default:
       return state;

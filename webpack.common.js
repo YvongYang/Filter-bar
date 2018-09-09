@@ -91,6 +91,12 @@ module.exports = {
             }
         }),        
     ],
+    node: {
+        dns: 'mock',
+        fs: 'empty',
+        path: true,
+        url: false
+    },
     output: {
         filename: '[name].[hash:8].js',
         // 相当于给dist文件设置别名

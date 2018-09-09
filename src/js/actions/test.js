@@ -18,9 +18,9 @@ export function decrement () {
   };
 }
 
-export function fetchServerData(data) {
+export function serverDataFetched(data) {
   return {
-    type: 'FETCH_SERVER_DATA',
+    type: 'SERVER_DATA_FETCHED',
     data
   };
 }

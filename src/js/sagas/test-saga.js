@@ -1,6 +1,7 @@
 import { delay } from 'redux-saga'
 import { put, takeEvery, actionChannel , call} from 'redux-saga/effects'
 import * as actions from '../actions/test';
+import { load } from 'babel-register/lib/cache';
 require('isomorphic-fetch');
 
 export function fetchServerData(data) {
@@ -19,9 +20,10 @@ export function fetchServerData(data) {
 export function* incrementAsync() {
   yield delay(1000);
   yield put(actions.increment());
-  // yield put(fetchServerData);
+  debugger
   const data = yield call(fetchServerData);
-  yield put(actions.fetchServerData(data));
+  debugger
+  yield put(actions.serverDataFetched(data));
 }
 
 export function* watchIncrementAsync() {

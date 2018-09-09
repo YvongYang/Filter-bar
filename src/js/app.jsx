@@ -7,7 +7,7 @@ import createSagaMiddleware from 'redux-saga';
 import createHistory from 'history/createHashHistory';
 
 import FilterBar from './filter-bar/index.jsx';
-import Test from './test';
+import Test from './test.jsx';
 import reducer from './reducers';
 import saga from './sagas';
 

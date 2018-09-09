@@ -12,15 +12,9 @@
  *        isRemoteProxy = true;
  *        remoteProxy='http://ip.taobao.com:80'
  */
-var express = require('express');
-// import Express from 'express';
-// import bodyParser from 'body-parser';
-// import cookieParser from 'cookie-parser';
-// import session from 'express-session';
-// import proxy from 'express-http-proxy';
-// import morgan from 'morgan';
+import Express from 'express';
 
-var app = express();
+const app = new Express();
 
 // 本地API服务
 // app.use(
@@ -29,9 +23,9 @@ var app = express();
 //   })
 // );
 
-app.use('/', require('../api/main'));
+app.use('/', require('./main'));
 
-var server = app.listen(3030, function(err) {
+var server = app.listen(3000, function(err) {
   var apiHost = server.address().address;
   var apiPort = server.address().port;
 
