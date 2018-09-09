@@ -2,15 +2,36 @@ import { delay } from 'redux-saga'
 import { put, takeEvery, actionChannel , call} from 'redux-saga/effects'
 import * as actions from '../actions/test';
 import { load } from 'babel-register/lib/cache';
+import { log } from 'util';
 require('isomorphic-fetch');
 
 export function fetchServerData(data) {
-  return fetch('test/server')
+  return fetch('test/server', {
+    body: JSON.stringify(data), // must match 'Content-Type' header
+    cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+    credentials: 'same-origin', // include, same-origin, *omit
+    headers: {
+      'content-type': 'application/json'
+    },
+    method: 'GET', // *GET, POST, PUT, DELETE, etc.
+    mode: 'cors', // no-cors, cors, *same-origin
+    redirect: 'follow', // manual, *follow, error
+    referrer: 'no-referrer', // *client, no-referrer
+  })
   .then(function(response) {
 		if (response.status >= 400) {
 			throw new Error("Bad response from server");
-		}
-		return response.json();
+    }
+    
+    const contentType = response.headers.get('Content-Type');
+
+    if(contentType.includes('application/json')) {
+      return response.json();
+    } else {
+      return response;
+    }
+
+		// return response.json();
 	})
 	.then(function(stories) {
 		console.log(stories);
@@ -20,10 +41,12 @@ export function fetchServerData(data) {
 export function* incrementAsync() {
   yield delay(1000);
   yield put(actions.increment());
-  debugger
-  const data = yield call(fetchServerData);
-  debugger
-  yield put(actions.serverDataFetched(data));
+  try {
+    const data = yield call(fetchServerData);  
+    yield put(actions.serverDataFetched(data.context)); 
+  } catch (error) {
+    console.log(error);
+  }
 }
 
 export function* watchIncrementAsync() {
